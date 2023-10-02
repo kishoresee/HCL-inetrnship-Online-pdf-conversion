@@ -1,3 +1,4 @@
+I have used HTML,CSS AND JS for the Online PDF conversion you can run "homepdf.html" file where you find the home page with title "PDF MANIAC" with breif description and number of pdf conversion options in it.
 # imgToPdf
 
 Here are some screenshots from the project
