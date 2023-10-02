@@ -1,31 +1,28 @@
 var data = []
 var width = 620
 var height = 800
-var pdfName
-var fileName = ''
-
+var pdnm = ''
+var lmd = ''
 const createPDF = document.getElementById('create-pdf')
-
 encodeImageFileAsURL = (element) => {
   document.getElementById('input-page').style.display = 'none'
   document.getElementById('pdf-page').style.display = 'inline-block'
   const length = element.files.length
   for (var i = 0; i < length; i++) {
     let file = element.files[i]
-    let pdfname = element.files[0]
+    let pdnm = element.files[0]
     let reader = new FileReader()
     reader.readAsDataURL(file)
     let obj = {
       list: reader,
-      fileName: file.name,
+      lmd: file.name,
       time: new Date().toString() + i,
     }
     reader.onloadend = () => {
       data = [...data, obj]
-      pdfName = pdfname.name
+      pdnm = pdnm.name
     }
   }
-
   setTimeout(convertToPDF, 1000)
   document.getElementById('upload-file').value = null
   setTimeout(saveAsPDF, 1000)
@@ -47,7 +44,6 @@ embedImagesjpg = async () => {
   for (var i = 0; i < data.length; i++) {
     const jpgUrl = data[i].list.result
     const jpgImageBytes = await fetch(jpgUrl).then((res) => res.arrayBuffer())
-
     const jpgImage = await pdfDoc.embedJpg(jpgImageBytes)
     const page = pdfDoc.addPage()
     page.setSize(width, height)
@@ -59,7 +55,7 @@ embedImagesjpg = async () => {
     })
   }
   const pdfBytes = await pdfDoc.save()
-  download(pdfBytes, pdfName.slice(0, -4), 'application/pdf')
+  download(pdfBytes, pdnm.slice(0, -4), 'application/pdf')
   setTimeout(backToHomepage, 1000)
 }
 function convertToPDF() {
@@ -67,10 +63,8 @@ function convertToPDF() {
   data.map((item, i) => {
     const fileItem = document.createElement('div')
     fileItem.setAttribute('class', 'file-item')
-
     const modify = document.createElement('div')
     modify.setAttribute('class', 'modify')
-
     const button2 = document.createElement('button')
     button2.setAttribute('class', 'delete-btn')
     button2.setAttribute('id', item.time)
@@ -91,17 +85,14 @@ function convertToPDF() {
     fileItem.appendChild(imgContainer)
     const imgName = document.createElement('p')
     imgName.setAttribute('id', 'img-name')
-    imgName.innerHTML = item.fileName
+    imgName.innerHTML = item.lmd
     fileItem.appendChild(imgName)
     createPDF.appendChild(fileItem)
   })
-
   const addMoreFile = document.createElement('div')
   addMoreFile.setAttribute('class', 'add-more-file')
-
   const addFile = document.createElement('div')
   addFile.setAttribute('class', 'inp-cont')
-
   const input = document.createElement('input')
   input.setAttribute('id', 'inp')
   input.type = 'file'
@@ -109,17 +100,13 @@ function convertToPDF() {
   input.onchange = function () {
     encodeImageFileAsURL(this)
   }
-
   const p = document.createElement('p')
   const i = document.createElement('i')
   i.setAttribute('class', 'fa fa-plus')
-
   p.appendChild(i)
-
   const label = document.createElement('label')
   label.htmlFor = 'inp'
   label.innerHTML = 'Add Files'
-
   addFile.appendChild(p)
   addFile.appendChild(label)
   addFile.appendChild(input)
