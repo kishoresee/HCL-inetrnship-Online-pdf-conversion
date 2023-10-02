@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML to PDF Conversion</title>
+  <link rel="stylesheet" type="text/css" href="htpdf.css">
+</head>
+<body>
+  <div id="content">
+    <h1>Hello, PDF!</h1>
+    <p><!--type the content here ....--></p>
+  </div>
+  <button class="c1"><a href="http://127.0.0.1:5500/htmltopdf.html">VIST HERE (type content to convert to pdf)</a></button>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <button id="download">Download PDF</button>
+  <script src="htpdf.js"></script>
+</body>
+</html>

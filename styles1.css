@@ -1,0 +1,22 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  background-image: linear-gradient(0deg,rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("wrd.png");
+    background-size:100%;
+    background-position:center;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    position: relative;
+    position: relative;
+    top:260px;
+}
+
+.hidden {
+  display: noe;
+}
+
+#convert-btn {
+  margin-top: 10px;
+}

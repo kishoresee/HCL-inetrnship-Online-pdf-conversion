@@ -1,0 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: linear-gradient(0deg,rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("aln.png");
+    background-size:100%;
+    background-position:center;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    position: relative;
+    top:150px; 
+}
+.c1{
+    position: relative;
+    top:-20px;
+    text-decoration: none;
+}
+#content {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
